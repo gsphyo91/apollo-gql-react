@@ -1,68 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Apollo, GraphQL Tutorials
 
-## Available Scripts
+## Client (React + Apollo + GraphQL)
 
-In the project directory, you can run:
+[참고문서](https://velog.io/@cadenzah/graphql-apollo-02-getting-started)
 
-### `yarn start`
+```bash
+create-react-app apollo-gql-tutorials
+npm install --save apollo-boost react-apollo graphql
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- `apollo-client` : Apollo 클라이언트를 다루는 데에 필요한 패키지들을 한 번에 설치
+  - `apollo-client`
+  - `apollo-cache-inmemory`
+  - `apollo-link-http`
+  - `apollo-link-error`
+  - `apollo-link-state`
+  - `graphql-tag`
+- `react-apollo` : Apollo 클라이언트를 React에서 사용하기 위한 바인딩 제공
+- `graphql` : Facebook이 작성한 GraphQL의 참조 구현
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Server (Node.js + GraphQL)
 
-### `yarn test`
+[참고문서](https://velog.io/@cadenzah/graphql-node-01-introduction)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install --save graphql-yoga
+```
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- `graphql-yoga` 
+- Express.js와 기타 라이브러리들을 기반으로 개발되었으며, 바로 배포가 가능한 정도의 GraphQL 서버를 만들 수 있도록 해준다.
+- 제공하는 기능
+  - GraphQl 명세의 준수
+  - 파일 업로드 지원
+  - GraphQL 구독을 사용한 실시간 기능
+  - TypeScript 지원
+  - GraphQL Playground를 훌륭하게 지원
+  - Express 미들웨어를 통한 확장성
+  - GraphQL 스키마에서 별도로 정의한 지시자(Directive)를 리졸브
+  - 쿼리 성능 추적
+  - `application/json`과 `application/graphql`의 Content-type을 모두 허용
+  - `now`, `up`, AWS Lambda, Heroku 등 다양한 서비스에서 작동
