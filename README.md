@@ -27,7 +27,7 @@ npm install --save apollo-boost react-apollo graphql
 npm install --save graphql-yoga
 ```
 
-- `graphql-yoga` 
+- `graphql-yoga`
 - Express.js와 기타 라이브러리들을 기반으로 개발되었으며, 바로 배포가 가능한 정도의 GraphQL 서버를 만들 수 있도록 해준다.
 - 제공하는 기능
   - GraphQl 명세의 준수
