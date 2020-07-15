@@ -1,20 +1,6 @@
 const { GraphQLServer } = require("graphql-yoga");
 
-const typeDefs = `
-type Query {
-  info: String!
-  feed: [Link!]!
-}
-
-type Link{
-  id: ID!
-  description: String!
-  url: String!
-}
-`;
-
-let links = [
-  {
+let links = [{
     id: "Link-0",
     url: "www.gowtographql.com",
     description: "Fullstack tutorial for GraphQL",
@@ -26,20 +12,36 @@ let links = [
   },
 ];
 
+let idCount = links.length;
 const resolvers = {
   Query: {
     info: () => "GraphQL Server",
     feed: () => links,
+    link: (parent, args) => {
+      const findLink = links.find(li => li.id === args.id);
+      return findLink;
+    },
   },
-  Link: {
-    id: (parent) => parent.id,
-    description: (parent) => parent.description,
-    url: (parent) => parent.url,
+  // Link: {
+  //   id: (parent) => parent.id,
+  //   description: (parent) => parent.description,
+  //   url: (parent) => parent.url,
+  // },
+  Mutation: {
+    createLink: (parent, args) => {
+      const link = {
+        id: `link-${idCount++}`,
+        description: args.description,
+        url: args.url,
+      };
+      links.push(link);
+      return link;
+    },
   },
 };
 
 const server = new GraphQLServer({
-  typeDefs,
+  typeDefs: "./server/schema.graphql",
   resolvers,
 });
 server.start(() => console.log(`http://localhost:4000에서 서버 기동 중!`));
