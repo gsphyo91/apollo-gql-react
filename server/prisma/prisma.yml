@@ -1,0 +1,15 @@
+# 사용할 Prisma API의 HTTP 엔드포인트
+#endpoint: ''
+endpoint: https://us1.prisma.sh/gyungsoo-phyo-c9b123/server/dev
+
+# 데이터 모델을 포함하고 있는 파일의 이름
+datamodel: datamodel.graphql
+
+generate:
+  - generator: javascript-client
+    output: ../generated/prisma-client
+
+# prisma deploy를 입력했을 때, 추가로 동작해야하는 명령 설정
+hooks:
+  post-deploy:
+    - prisma generate
